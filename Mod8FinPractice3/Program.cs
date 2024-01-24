@@ -4,7 +4,7 @@
     {
         static void Main(string[] args)
         {
-            string path = @"C:\Users\lino-\OneDrive\Рабочий стол\Новая папка (3)";
+            string path = @"\";
             long memoryBeforeCollection = GetFolderSize(path);
             Console.WriteLine($"Исходный размер папки:{memoryBeforeCollection}");
             DeleteUnusedFiles(path);
