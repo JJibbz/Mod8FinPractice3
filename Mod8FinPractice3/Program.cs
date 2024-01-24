@@ -5,8 +5,8 @@
         static void Main(string[] args)
         {
             string path = @"\";
-            Console.WriteLine($"Исходный размер папки:{GetFolderSize(path)}");
             long memoryBeforeCollection = GetFolderSize(path);
+            Console.WriteLine($"Исходный размер папки:{memoryBeforeCollection}");
             DeleteUnusedFiles(path);
             long releasedMemory = memoryBeforeCollection - GetFolderSize(path);
             Console.WriteLine($"Освобождено: {releasedMemory}");
