@@ -4,7 +4,7 @@
     {
         static void Main(string[] args)
         {
-            string path = @"\";
+            string path = @"C:\Users\lino-\OneDrive\Рабочий стол\Новая папка (3)";
             long memoryBeforeCollection = GetFolderSize(path);
             Console.WriteLine($"Исходный размер папки:{memoryBeforeCollection}");
             DeleteUnusedFiles(path);
@@ -58,7 +58,7 @@
                     DirectoryInfo[] folders = directory.GetDirectories();
                     foreach (DirectoryInfo folder in folders)
                     {
-                        DateTime lastAccess = Directory.GetLastAccessTime(folder.FullName);
+                        DateTime lastAccess = Directory.GetLastWriteTime(folder.FullName);
                         if (lastAccess <= lifeSpan)
                         {
                             DeleteUnusedFiles(folder.FullName);
@@ -69,7 +69,7 @@
                     FileInfo[] files = directory.GetFiles();
                     foreach (FileInfo file in files)
                     {
-                        DateTime lastAccess = File.GetLastAccessTime(file.FullName);
+                        DateTime lastAccess = File.GetLastWriteTime(file.FullName);
                         if (lastAccess <= lifeSpan)
                         {
                             file.Delete();
